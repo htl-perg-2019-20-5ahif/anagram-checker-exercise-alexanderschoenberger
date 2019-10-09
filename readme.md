@@ -26,7 +26,7 @@ The command `AnagramChecker check talk jump` must lead to `"talk" and "jump" are
 The following request has to return the HTTP status code *OK* because *listen* and *silent* are anagrams.
 
 ```http
-GET http://localhost:5000/api/checkAnagram
+POST http://localhost:5000/api/checkAnagram
 Content-Type: application/json
 
 {
@@ -38,7 +38,7 @@ Content-Type: application/json
 The following request has to return the HTTP status code *BadRequest* because *talk* and *jump* are no anagrams.
 
 ```http
-GET http://localhost:5000/api/checkAnagram
+POST http://localhost:5000/api/checkAnagram
 Content-Type: application/json
 
 {
