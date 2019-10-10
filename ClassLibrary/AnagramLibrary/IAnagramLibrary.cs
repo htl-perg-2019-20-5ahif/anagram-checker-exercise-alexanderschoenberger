@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibrary
+namespace AnagramLibrary
 {
-    public interface IClass1
+    public interface IAnagramLibrary
     {
         void ReadFile(string path);
     }

@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="ClassLibrary">
-      <HintPath>..\..\ClassLibrary\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.dll</HintPath>
+    <Reference Include="AnagramLibrary">
+      <HintPath>..\..\ClassLibrary\AnagramLibrary\bin\Debug\netstandard2.0\AnagramLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

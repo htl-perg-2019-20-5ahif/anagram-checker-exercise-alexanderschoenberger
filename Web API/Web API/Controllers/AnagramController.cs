@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ClassLibrary;
+using AnagramLibrary;
 using System;
 using Microsoft.Extensions.Configuration;
 
@@ -12,10 +12,10 @@ namespace Web_API.Controllers
     {
 
         private readonly ILogger<AnagramController> _logger;
-        private IClass1 reader;
+        private IAnagramLibrary reader;
         private IConfiguration configuration;
 
-        public AnagramController(ILogger<AnagramController> logger, IClass1 reader, IConfiguration configuration)
+        public AnagramController(ILogger<AnagramController> logger, IAnagramLibrary reader, IConfiguration configuration)
         {
             _logger = logger;
             this.reader = reader;
@@ -27,7 +27,7 @@ namespace Web_API.Controllers
         public IActionResult CheckAnagram([FromBody] Anagram a)
         {
             reader.ReadFile(configuration["dictonaryFileName"]);
-            if (Class1.CheckToWords(a.W1, a.W2))
+            if (AnagramLibrary.AnagramLibrary.CheckToWords(a.W1, a.W2))
             {
                 return Ok();
             }
@@ -40,7 +40,7 @@ namespace Web_API.Controllers
         {
             Console.WriteLine("" + w);
             reader.ReadFile(configuration["dictonaryFileName"]);
-            var list = Class1.findAnagrams(w);
+            var list = AnagramLibrary.AnagramLibrary.findAnagrams(w);
             if (list != null)
             {
                 return Ok(list);
@@ -53,7 +53,7 @@ namespace Web_API.Controllers
         [Route("/getPermutations")]
         public IActionResult GetPermutations([FromQuery] string w)
         {
-            return Ok(Class1.getPermutations(w));
+            return Ok(AnagramLibrary.AnagramLibrary.getPermutations(w));
         }
     }
 }

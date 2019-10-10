@@ -6,9 +6,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace AnagramLibrary
 {
-    public class Class1 : IClass1
+    public class AnagramLibrary : IAnagramLibrary
     {
         static Dictionary<string, List<string>> anagrams;
         static List<string> list;

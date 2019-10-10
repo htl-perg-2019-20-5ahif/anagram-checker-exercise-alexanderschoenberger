@@ -1,16 +1,16 @@
-﻿using ClassLibrary;
+﻿using AnagramLibrary;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 namespace CommandLineTool
 {
-    class Program
+    class CommandLineToolProgram
     {
         static int Main(string[] args)
         {
             if (args.Length > 0)
             {
-                IClass1 reader = new Class1();
+                IAnagramLibrary reader = new AnagramLibrary.AnagramLibrary();
                 reader.ReadFile(ConfigurationManager.AppSettings.Get("dir"));
                 if (args[0].Equals("check"))
                 {
@@ -30,14 +30,14 @@ namespace CommandLineTool
 
         private static int getPermutations(string word)
         {
-            var found = Class1.getPermutations(word);
+            var found = AnagramLibrary.AnagramLibrary.getPermutations(word);
             printList(found);
             return 0;
         }
 
         private static int getKnown(string word)
         {
-            var found = (List<string>)Class1.findAnagrams(word);
+            var found = (List<string>)AnagramLibrary.AnagramLibrary.findAnagrams(word);
             if (found == null)
             {
                 Console.WriteLine("No known anagrams found ");
@@ -50,7 +50,7 @@ namespace CommandLineTool
         private static int check(string[] args)
         {
             Console.Write("\"" + args[1] + "\" and \"" + args[2] + "\" are ");
-            if (!Class1.CheckToWords(args[1], args[2]))
+            if (!AnagramLibrary.AnagramLibrary.CheckToWords(args[1], args[2]))
             {
                 Console.Write("no ");
             }
